@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Kiki San</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: url('https://files.catbox.moe/zwtpaa.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(3px);
+      padding: 20px;
+      animation: fadeInUp 2s ease;
+    }
+
+    .wish-text {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.2rem;
+      color: #fff0ff;
+      text-shadow: 2px 2px 8px #9c27b0;
+      margin-bottom: 20px;
+      line-height: 1.3;
+      animation: glowText 2.5s ease-in-out infinite alternate;
+    }
+
+    .wish-text span {
+      font-size: 4rem;
+      display: block;
+      margin-top: 10px;
+      font-family: 'Great Vibes', cursive;
+      color: #ffffff;
+    }
+
+    .image-box img {
+      max-width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 0 40px #fff;
+      animation: glowImage 2s infinite ease-in-out;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.8rem;
+      color: #ffeaff;
+      text-shadow: 2px 2px 4px #b833c1;
+      animation: glowText 3s ease-in-out infinite alternate, fadeIn 3s ease-in;
+    }
+
+    .flowers {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .flower {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: url('https://files.catbox.moe/68zagc.png') no-repeat center;
+      background-size: contain;
+      animation: fall 10s linear infinite, rotateFlower 8s linear infinite;
+      opacity: 0.8;
+    }
+
+    .flower:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .flower:nth-child(2) { left: 30%; animation-delay: 2s; }
+    .flower:nth-child(3) { left: 50%; animation-delay: 4s; }
+    .flower:nth-child(4) { left: 70%; animation-delay: 6s; }
+    .flower:nth-child(5) { left: 90%; animation-delay: 8s; }
+
+    .hearts-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 2rem;
+      color: #ff69b4;
+      animation: floatUp 6s linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fall {
+      0% { top: -60px; }
+      100% { top: 110%; }
+    }
+
+    @keyframes rotateFlower {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes glowImage {
+      0% { box-shadow: 0 0 10px #fff; }
+      50% { box-shadow: 0 0 30px #fff, 0 0 60px #ffb6c1; }
+      100% { box-shadow: 0 0 10px #fff; }
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 10px #ffffff, 0 0 20px #ff6ec7; }
+      to { text-shadow: 0 0 15px #fff, 0 0 25px #ffb6f0; }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Music -->
+  <audio autoplay loop>
+    <source src="your-music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Floating Hearts Container -->
+  <div class="hearts-container" id="hearts"></div>
+
+  <!-- Main Birthday Content -->
+  <div class="container">
+    <h1 class="wish-text">
+      Happy Birthday<br>
+      <span>Kiki San</span> 🎉
+    </h1>
+    <div class="image-box">
+      <img src="https://files.catbox.moe/qjgm5t.png" alt="Kiki San Image" />
+    </div>
+    <p class="footer">
+      Wishing you a day full of love, sparkles & flowers 🌸💜
+    </p>
+  </div>
+
+  <!-- Falling Flowers -->
+  <div class="flowers">
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+  </div>
+
+  <!-- JavaScript: Floating 💗 Generator -->
+  <script>
+    const container = document.getElementById("hearts");
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+      heart.innerText = "💗";
+      container.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+
+    setInterval(createHeart, 300); // create one every 0.3s
+  </script>
+</body>
+</html>
