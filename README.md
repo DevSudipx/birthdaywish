@@ -8,7 +8,7 @@ A beautiful animated birthday greeting page built with pure HTML, CSS, and a lit
 
 ## 🌸 Live Preview
 
-🔗 [Click Here to See the Surprise]([https://your-github-username.github.io/DoYouLoveMe/](https://sudipx.site/birthdaywish/))  
+🔗 [Click Here to See the Surprise](https://your-github-username.github.io/DoYouLoveMe/](https://sudipx.site/birthdaywish/)](https://sudipx.site/birthdaywish/)  
 (Replace with your actual GitHub Pages link)
 
 ---
